@@ -1,0 +1,226 @@
+/* =====================================================
+   responsive.css  -  load AFTER style.css (and page css)
+   Breakpoints: 1600+ | <=1199 | <=991 | 768-991 | <=767 | <=575 | <=380
+   ===================================================== */
+
+/* ---------- Base safety (all screens) ---------- */
+body{overflow-x:clip}                 /* stops sideways scroll, keeps sticky navbar working */
+img,iframe,video,svg{max-width:100%}
+iframe{border:0}
+.row>*{min-width:0}                   /* lets long words/emails wrap inside columns */
+.container{padding-left:16px;padding-right:16px}
+a[href^="mailto"],a[href^="tel"]{overflow-wrap:anywhere}
+
+/* Map embed (the iframe is not an <img>, so it needs its own rule) */
+.visit .map iframe{display:block;width:100%;height:auto;aspect-ratio:16/10;border-radius:14px;box-shadow:var(--shadow-lg)}
+
+/* ---------- Very large screens ---------- */
+@media (min-width:1600px){
+  .container{max-width:1440px}
+  .hero{min-height:680px}
+  html{font-size:17px}
+}
+
+/* ---------- Small laptops ---------- */
+@media (max-width:1199.98px){
+  .navbar .nav-link{padding:.5rem .6rem!important;font-size:.95rem}
+  .navbar .btn-teal{padding:.55rem 1rem}
+}
+
+/* ---------- Tablets & below (mobile menu) ---------- */
+@media (max-width:991.98px){
+  section{padding:64px 0}
+  .navbar-collapse{margin-top:.6rem;padding:.4rem 0 1rem;border-top:1px solid var(--line);max-height:calc(100vh - 110px);overflow-y:auto}
+  .navbar .nav-link{padding:.75rem .4rem!important;border-bottom:1px solid var(--line)}
+  .navbar .nav-link::after{display:none}
+  .navbar .btn-teal{display:block;width:100%;margin-top:.9rem;text-align:center}
+
+  .hero{min-height:480px}
+  .quick{margin-top:-40px}
+  .welcome-img{margin-bottom:1.5rem}
+  .step:not(:last-child)::after{display:none}   /* dashed connector hidden when steps wrap */
+  .step{margin-bottom:1.8rem}
+  .visit .map iframe{aspect-ratio:16/11}
+  .page-hero{min-height:380px}
+}
+
+/* ---------- Tablet portrait: 2 cards per row instead of cramped 3 ---------- */
+@media (min-width:768px) and (max-width:991.98px){
+  .row>.col-md-4:not(.col-6),
+  .row>.col-md-3.step{width:50%}
+  .row.g-4{justify-content:center}               /* centres a lone last card */
+}
+
+/* ---------- Phones & small tablets ---------- */
+@media (max-width:767.98px){
+  section{padding:52px 0}
+  .sec-sub{margin-bottom:1.8rem}
+
+  /* Top bar */
+  .top-bar{font-size:.82rem}
+  .top-bar .container{justify-content:center!important;text-align:center;gap:.35rem}
+  .top-bar span,.top-bar a{margin-right:0}
+
+  /* Navbar / hero */
+  .navbar-brand img{height:44px}
+  .hero{min-height:440px;padding:56px 0 84px}
+  .hero p{font-size:1.02rem}
+  .page-hero{min-height:340px;padding:48px 0 70px}
+
+  /* Quick access & finder strips */
+  .quick a{padding:.9rem;gap:.7rem;font-size:.95rem}
+  .quick a i{font-size:1.5rem}
+  .finder,.contact-strip{margin-top:-30px}
+
+  /* Cards */
+  .welcome-img .badge-exp{right:12px;bottom:-16px;padding:.7rem 1rem}
+  .welcome-img .badge-exp span{font-size:1.4rem}
+  .pkg{padding:1.6rem 1.2rem}
+  .testi{padding:1.4rem}
+  .fac .cap,.team-card .cap{padding:1.1rem .9rem .7rem}
+
+  /* Contact / emergency blocks */
+  .emg-banner{padding:1.4rem}
+  .emg-banner .num{font-size:1.15rem;padding:.5rem 1rem}
+  .emg .emg-head a{font-size:1.2rem}
+  .help-card{padding:1.6rem}
+
+  /* Forms: 16px stops iOS zooming in on focus */
+  input,select,textarea{font-size:16px!important}
+  .form-card{padding:1.4rem}
+
+  /* Footer centred */
+  footer{text-align:center;padding-top:40px}
+  footer img{display:block;margin-left:auto;margin-right:auto}
+  footer a:hover{padding-left:0}
+}
+
+/* ---------- Phones ---------- */
+@media (max-width:575.98px){
+  section{padding:44px 0}
+  h2{font-size:1.5rem}
+
+  .hero{min-height:420px}
+  .hero .btns .btn,.help-card .btn,.cta .btn{width:100%}
+
+  /* Quick access: icon on top, text below, so two tiles fit side by side */
+  .quick a{flex-direction:column;text-align:center;justify-content:center;gap:.4rem}
+  .quick a small{font-size:.8rem}
+
+  .dept{padding:1.2rem .7rem}
+  .dept .ic{width:56px;height:56px;font-size:1.5rem}
+  .dept h5{font-size:.95rem}
+  .dept p{font-size:.8rem}
+  .spec{padding:1.1rem .6rem}
+
+  .doc .info{padding:1rem .8rem}
+  .step .num{width:68px;height:68px;font-size:1.6rem}
+  .visit .info-row i{width:40px;height:40px}
+  .visit .d-flex .btn{flex:1 1 100%}
+  .visit .map iframe{aspect-ratio:1/1;min-height:300px}
+
+  .tech{flex-direction:column}
+  .tech img{width:100%;height:160px}
+  .chips{gap:.4rem}
+  .chip{padding:.3rem .8rem;font-size:.85rem}
+  .time-row{flex-direction:column;gap:0}
+  .time-row strong{text-align:left}
+}
+
+/* ---------- Very small phones (320-380px) ---------- */
+@media (max-width:380px){
+  .navbar-brand img{height:38px}
+  .top-bar .emergency{padding:.1rem .5rem}
+  .hero h1{font-size:1.7rem}
+  .quick a{padding:.7rem .5rem;font-size:.88rem}
+  .quick a i{font-size:1.3rem}
+  .btn-lg{padding:.6rem 1rem;font-size:1rem}
+}
+
+/* ---------- Phones in landscape ---------- */
+@media (max-height:500px) and (orientation:landscape){
+  .hero{min-height:360px;padding:36px 0 64px}
+  .page-hero{min-height:300px}
+  .navbar-collapse{max-height:70vh}
+}
+
+/* ---------- Touch devices: no hover, so show hidden captions & skip lift effects ---------- */
+@media (hover:none){
+  .fac .cap small,.team-card .cap small{opacity:1;max-height:60px}
+  .card-x:hover,.quick a:hover,.why-item:hover,.val:hover,.diag-item:hover,.fb-card:hover{transform:none}
+}
+
+/* =====================================================
+   About page additions
+   ===================================================== */
+@media (max-width:991.98px){
+  .page-hero p{max-width:none}
+  .story .row{text-align:left}
+}
+@media (max-width:767.98px){
+  /* timeline: card fills the width beside the vertical line */
+  .tl-card{display:block}
+  .tl-year{font-size:1.15rem}
+  .mv{padding:1.5rem}
+  .mv .ic{width:54px;height:54px;font-size:1.5rem}
+  .val{padding:1.4rem 1rem}
+  .safe{padding:1rem}
+  .story .quote-box{padding:.8rem 1rem}
+  .cta{padding:56px 0}
+}
+@media (max-width:575.98px){
+  /* one-column photo cards: shorter images so they don't fill the whole screen */
+  .lead-card .photo img,.doc .photo img{aspect-ratio:4/3}
+  .team-card img,.infra img{aspect-ratio:16/10}
+  .val i{font-size:2rem}
+  .tl-item,.tl-item:nth-child(even){padding-left:2.2rem}
+  .cta .d-flex{flex-direction:column}
+}
+
+/* =====================================================
+   Departments page additions
+   ===================================================== */
+
+/* The home-page card class ".dept" is also used on these sections as a search/filter hook,
+   so its card styling (centred text, small paragraphs, tight padding) is neutralised here. */
+section.dept{padding:70px 0;text-align:left;display:block}
+section.dept p{font-size:1rem;margin-bottom:1rem}
+section.dept .spec p{font-size:.88rem;margin:0}
+section.dept:hover h5{color:inherit}
+
+/* Hero: keep your tall 90vh look on desktop, but let it grow if content needs more room */
+@media (min-width:992px){ .page-hero{height:auto;min-height:90vh} }
+@media (max-width:991.98px){
+  .page-hero{height:auto}
+  section.dept{padding:60px 0}
+  .dept-block .pic{margin-bottom:1.6rem}      /* room for the round icon badge under the photo */
+  .dept-block .row{--bs-gutter-y:2rem}
+}
+
+/* Divider was set to a fixed 550px, which overflows phones: cap it to the available width */
+.divider{width:min(550px,100%)}
+.divider.left{margin-left:0}
+
+@media (max-width:767.98px){
+  section.dept{padding:48px 0}
+  .dept-block{padding:48px 0}
+  .divider{width:min(240px,100%)}
+  .finder-box{padding:1rem}
+  .emg .emg-head{padding:1rem}
+  .emg .emg-head h2{font-size:1.2rem}
+  .emg .emg-body{padding:1rem}
+  .dept-block .badge-ic{width:52px;height:52px;font-size:1.4rem;left:16px}
+  .sos-float{right:14px;bottom:14px;width:52px;height:52px}
+}
+
+@media (max-width:575.98px){
+  section.dept{padding:40px 0}
+  .divider{width:min(120px,100%)}
+  /* category chips scroll sideways in one row instead of wrapping into a tall block */
+  .chips{flex-wrap:nowrap;overflow-x:auto;padding-bottom:.4rem;-webkit-overflow-scrolling:touch}
+  .chip{flex:none;white-space:nowrap}
+  .svc-list li:hover{transform:none}
+  .emg .emg-head a{font-size:1.1rem}
+  .emg .btn{width:100%}
+  .dept-block .btn-blue{width:100%;text-align:center}
+}

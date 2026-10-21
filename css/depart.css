@@ -1,0 +1,502 @@
+/* Departments page styles (loads after style.css; same theme tokens) */
+
+/* Page hero */
+.page-hero {
+    position: relative;
+    color: #fff;
+    /* min-height: 420px; */
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden
+}
+
+.page-hero>img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: slowzoom 18s ease-in-out infinite alternate
+}
+
+.page-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(100deg, rgba(18, 59, 99, .95) 20%, rgba(18, 59, 99, .6) 75%, rgba(8, 127, 140, .35))
+}
+
+.page-hero .container {
+    position: relative;
+    z-index: 2
+}
+
+.page-hero h1 {
+    color: #fff;
+    font-size: clamp(2rem, 4.2vw, 3.2rem);
+    animation: rise .9s both
+}
+
+.page-hero p {
+    color: #dbe8f2;
+    font-size: 1.12rem;
+    max-width: 600px;
+    animation: rise .9s .2s both
+}
+
+.crumbs {
+    font-size: .9rem;
+    margin-bottom: 1rem;
+    animation: rise .9s both
+}
+
+.crumbs a {
+    color: #9fe1e8;
+    text-decoration: none
+}
+
+.crumbs span {
+    color: #dbe8f2
+}
+
+/* Finder */
+.finder {
+    margin-top: -45px;
+    position: relative;
+    z-index: 5;
+    padding: 0 0 20px
+}
+
+.finder-box {
+    background: var(--card);
+    border-radius: 14px;
+    box-shadow: var(--shadow-lg);
+    padding: 1.5rem
+}
+
+.search-wrap {
+    position: relative
+}
+
+.search-wrap i {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--teal);
+    font-size: 1.1rem
+}
+
+.search-wrap input {
+    width: 100%;
+    border: 2px solid var(--line);
+    border-radius: 10px;
+    padding: .8rem 1rem .8rem 2.8rem;
+    font-size: 1rem;
+    color: var(--text);
+    background: var(--bg);
+    transition: .3s
+}
+
+.search-wrap input:focus {
+    outline: none;
+    border-color: var(--teal);
+    box-shadow: 0 0 0 4px rgba(8, 127, 140, .15);
+    background: #fff
+}
+
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    margin-top: 1rem
+}
+
+.chip {
+    border: 2px solid var(--line);
+    background: #fff;
+    color: var(--blue);
+    font-weight: 600;
+    border-radius: 50px;
+    padding: .35rem 1rem;
+    font-size: .92rem;
+    text-decoration: none;
+    transition: .3s
+}
+
+.chip:hover {
+    border-color: var(--teal);
+    color: var(--teal);
+    transform: translateY(-2px)
+}
+
+.chip.active {
+    background: var(--teal);
+    border-color: var(--teal);
+    color: #fff
+}
+
+.no-result {
+    display: none;
+    text-align: center;
+    padding: 1rem;
+    color: var(--muted)
+}
+
+/* Department blocks */
+.dept-block {
+    padding: 70px 0
+}
+
+.dept-block.alt {
+    background: #fff
+}
+
+.dept-block .pic {
+    position: relative
+}
+
+.dept-block .pic img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: var(--shadow-lg);
+    aspect-ratio: 7/5;
+    object-fit: cover;
+    transition: transform .6s
+}
+
+.dept-block .pic:hover img {
+    transform: scale(1.03)
+}
+
+.dept-block .badge-ic {
+    position: absolute;
+    bottom: -18px;
+    left: 22px;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--teal);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: var(--shadow);
+    transition: .4s
+}
+
+.dept-block .pic:hover .badge-ic {
+    transform: rotate(360deg)
+}
+
+.dept-block.alt .badge-ic {
+    background: var(--blue)
+}
+
+.svc-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 1.4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .35rem 1rem
+}
+
+.svc-list li {
+    color: var(--muted);
+    transition: .25s
+}
+
+.svc-list li i {
+    color: var(--teal);
+    margin-right: .5rem
+}
+
+.svc-list li:hover {
+    color: var(--text);
+    transform: translateX(4px)
+}
+
+@media(max-width:575px) {
+    .svc-list {
+        grid-template-columns: 1fr
+    }
+}
+
+.btn-link-arrow {
+    color: var(--teal);
+    font-weight: 700;
+    text-decoration: none;
+    margin-left: .4rem
+}
+
+.btn-link-arrow i {
+    transition: .3s;
+    display: inline-block
+}
+
+.btn-link-arrow:hover i {
+    transform: translateX(5px)
+}
+
+.btn-link-arrow:hover {
+    color: var(--blue)
+}
+
+/* Other specialities */
+.spec {
+    padding: 1.5rem 1rem;
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    color: var(--text)
+}
+
+.spec .ic {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(8, 127, 140, .1);
+    color: var(--teal);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin-bottom: .8rem;
+    transition: .35s
+}
+
+.spec h5 {
+    font-size: 1rem;
+    margin-bottom: .2rem
+}
+
+.spec p {
+    font-size: .88rem;
+    margin: 0
+}
+
+.spec:hover .ic {
+    background: var(--teal);
+    color: #fff;
+    transform: rotateY(180deg)
+}
+
+.spec:hover h5 {
+    color: var(--teal)
+}
+
+/* Diagnostics */
+.diag {
+    background: var(--blue)
+}
+
+.diag h2,
+.diag h5 {
+    color: #fff
+}
+
+.diag p {
+    color: #c3d3e0
+}
+
+.diag-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1.2rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, .07);
+    transition: .3s;
+    height: 100%
+}
+
+.diag-item i {
+    font-size: 2rem;
+    color: #7fd6de;
+    flex: none;
+    transition: .3s
+}
+
+.diag-item:hover {
+    background: rgba(255, 255, 255, .15);
+    transform: translateY(-6px)
+}
+
+.diag-item:hover i {
+    transform: scale(1.2)
+}
+
+.diag-item h5 {
+    font-size: 1.02rem;
+    margin-bottom: .2rem
+}
+
+.diag-item p {
+    font-size: .9rem;
+    margin: 0
+}
+
+.diag-img {
+    width: 100%;
+    border-radius: 16px;
+    aspect-ratio: 7/5;
+    object-fit: cover;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, .3)
+}
+
+/* Emergency */
+.emg {
+    border: 2px solid var(--emergency);
+    border-radius: 16px;
+    background: #fff;
+    overflow: hidden;
+    box-shadow: var(--shadow)
+}
+
+.emg .emg-head {
+    background: var(--emergency);
+    color: #fff;
+    padding: 1.2rem 1.6rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between
+}
+
+.emg .emg-head h2 {
+    color: #fff;
+    font-size: 1.5rem;
+    margin: 0
+}
+
+.emg .emg-head a {
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-decoration: none;
+    animation: pulse 2s infinite;
+    border-radius: 50px;
+    padding: .2rem 1rem
+}
+
+.emg .emg-body {
+    padding: 1.6rem
+}
+
+.emg img {
+    width: 100%;
+    border-radius: 12px;
+    aspect-ratio: 3/2;
+    object-fit: cover
+}
+
+.emg .tick li i {
+    color: var(--emergency)
+}
+
+.emg-info {
+    display: flex;
+    gap: .8rem;
+    margin-top: .8rem;
+    align-items: flex-start
+}
+
+.emg-info i {
+    color: var(--emergency);
+    font-size: 1.3rem
+}
+
+/* FAQ */
+.accordion-item {
+    border: 1px solid var(--line);
+    border-radius: 12px !important;
+    margin-bottom: .8rem;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: .3s
+}
+
+.accordion-item:hover {
+    border-color: var(--teal)
+}
+
+.accordion-button {
+    font-weight: 700;
+    color: var(--blue);
+    background: #fff
+}
+
+.accordion-button:not(.collapsed) {
+    background: rgba(8, 127, 140, .08);
+    color: var(--teal);
+    box-shadow: none
+}
+
+.accordion-button:focus {
+    box-shadow: 0 0 0 3px rgba(8, 127, 140, .25)
+}
+
+.accordion-body {
+    color: var(--muted)
+}
+
+/* Help CTA */
+.help {
+    background: #fff
+}
+
+.help-card {
+    background: linear-gradient(120deg, var(--blue), #0d5a73);
+    color: #fff;
+    border-radius: 18px;
+    padding: 2.6rem;
+    box-shadow: var(--shadow-lg)
+}
+
+.help-card h2 {
+    color: #fff
+}
+
+.help-card p {
+    color: #dbe8f2
+}
+
+.help-card .contact-line {
+    display: flex;
+    gap: .8rem;
+    align-items: center;
+    margin-bottom: .7rem;
+    color: #fff
+}
+
+.help-card .contact-line i {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .14);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .3s;
+    flex: none
+}
+
+.help-card .contact-line:hover i {
+    background: var(--teal);
+    transform: scale(1.1)
+}
+
+.divider {
+    width: 550px;
+    height: 4px;
+    background: var(--teal);
+    border-radius: 4px;
+    margin: .8rem auto 1.2rem
+}
+
+.divider.left {
+    margin-left: 0
+}
